@@ -41,6 +41,9 @@ jobs:
         echo "DB_CONNECTION=sqlite" >> .env
         echo "DB_DATABASE=${{ github.workspace }}/database/database.sqlite" >> .env
 
+    - name: Run migrations
+      run: php artisan migrate
+
     - name: Generate key
       run: php artisan key:generate
 
